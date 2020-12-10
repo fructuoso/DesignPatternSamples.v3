@@ -34,8 +34,8 @@ namespace DesignPatternSamples.Infra.Repository
 
             return obj;
         }
-        public async Task<TEntity> GetAsync(TKey id) => await _DbSet.FirstOrDefaultAsync(o => o.Id.Equals(id));
-        public async Task<IEnumerable<TEntity>> GetAllAsync() => await Task.FromResult<IEnumerable<TEntity>>(_DbSet);
+        public async Task<TEntity> GetAsync(TKey id) => await _DbSet.AsNoTracking().FirstOrDefaultAsync(o => o.Id.Equals(id));
+        public async Task<IEnumerable<TEntity>> GetAllAsync() => await Task.FromResult<IEnumerable<TEntity>>(_DbSet.AsNoTracking());
         public async Task<TEntity> UpdateAsync(TEntity obj)
         {
             if (!await _DbSet.AnyAsync(o => o.Id.Equals(obj.Id))) return null;
