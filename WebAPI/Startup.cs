@@ -12,6 +12,9 @@ using DesignPatternSamples.Domain.Core.Interfaces.Repository;
 using AutoMapper;
 using System;
 using FluentValidation.AspNetCore;
+using DesignPatternSamples.Publisher;
+using DesignPatternSamples.Publisher.Fake;
+using DesignPatternSamples.Domain.Core.Entity;
 
 namespace WebAPI
 {
@@ -41,7 +44,9 @@ namespace WebAPI
 
             #region Dependency Injectionn
             services.AddTransient(typeof(IServiceCrud<,>), typeof(GenericServiceCrud<,>));
+            services.AddTransient<IServiceCrud<Guid, Palestra>, PalestraService>();
             services.AddTransient(typeof(IRepositoryCrud<,>), typeof(GenericRepositoryCrud<,>));
+            services.AddTransient<IPublisher, PublisherFake>();
             #endregion
 
             #region AutoMapper

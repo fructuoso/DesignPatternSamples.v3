@@ -24,5 +24,7 @@
     <ProjectReference Include="..\Domain.Core\Domain.Core.csproj" />
     <ProjectReference Include="..\Domain.Services\Domain.Services.csproj" />
     <ProjectReference Include="..\Infra.Repository\Infra.Repository.csproj" />
+    <ProjectReference Include="..\Publisher.Fake\Publisher.Fake.csproj" />
+    <ProjectReference Include="..\Publisher\Publisher.csproj" />
   </ItemGroup>
 </Project>
