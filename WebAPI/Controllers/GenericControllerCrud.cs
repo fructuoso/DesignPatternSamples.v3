@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace WebAPI.Controllers
+namespace DesignPatternSamples.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     public abstract class GenericControllerCrud<TKey, TEntity, TModel> : ControllerBase where TKey : struct where TEntity : BaseEntity<TKey>
