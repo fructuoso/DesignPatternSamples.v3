@@ -47,6 +47,7 @@ namespace WebAPI
             services.AddTransient<IServiceCrud<Guid, Palestra>, PalestraService>();
             services.AddTransient(typeof(IRepositoryCrud<,>), typeof(GenericRepositoryCrud<,>));
             services.AddTransient<IPublisher, PublisherFake>();
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
             #endregion
 
             #region AutoMapper

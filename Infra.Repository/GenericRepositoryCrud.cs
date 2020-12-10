@@ -20,7 +20,6 @@ namespace DesignPatternSamples.Infra.Repository
         public async Task<TEntity> AddAsync(TEntity obj)
         {
             _DbSet.Add(obj);
-            await _Context.SaveChangesAsync();
             return obj;
         }
         public async Task<TEntity> DeleteAsync(TKey id)
@@ -30,8 +29,6 @@ namespace DesignPatternSamples.Infra.Repository
             if (obj == null) return null;
 
             _DbSet.Remove(obj);
-            await _Context.SaveChangesAsync();
-
             return obj;
         }
         public async Task<TEntity> GetAsync(TKey id) => await _DbSet.AsNoTracking().FirstOrDefaultAsync(o => o.Id.Equals(id));
@@ -41,7 +38,6 @@ namespace DesignPatternSamples.Infra.Repository
             if (!await _DbSet.AnyAsync(o => o.Id.Equals(obj.Id))) return null;
 
             _Context.Entry(obj).State = EntityState.Modified;
-            await _Context.SaveChangesAsync();
             return obj;
         }
 
