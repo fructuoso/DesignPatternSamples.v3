@@ -42,6 +42,7 @@ namespace WebAPI
             #region Dependency Injectionn
             services.AddTransient(typeof(IServiceCrud<,>), typeof(GenericServiceCrud<,>));
             services.AddTransient(typeof(IRepositoryCrud<,>), typeof(GenericRepositoryCrud<,>));
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
             #endregion
 
             #region AutoMapper
