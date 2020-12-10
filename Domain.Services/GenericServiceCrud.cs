@@ -15,10 +15,10 @@ namespace DesignPatternSamples.Domain.Services
             _Repository = repository;
         }
 
-        public async Task<TEntity> AddAsync(TEntity obj) => await _Repository.AddAsync(obj);
-        public async Task<TEntity> DeleteAsync(TKey id) => await _Repository.DeleteAsync(id);
-        public async Task<TEntity> GetAsync(TKey id) => await _Repository.GetAsync(id);
-        public async Task<IEnumerable<TEntity>> GetAllAsync() => await _Repository.GetAllAsync();
-        public async Task<TEntity> UpdateAsync(TEntity obj) => await _Repository.UpdateAsync(obj);
+        public virtual async Task<TEntity> AddAsync(TEntity obj) => await _Repository.AddAsync(obj);
+        public virtual async Task<TEntity> DeleteAsync(TKey id) => await _Repository.DeleteAsync(id);
+        public virtual async Task<TEntity> GetAsync(TKey id) => await _Repository.GetAsync(id);
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync() => await _Repository.GetAllAsync();
+        public virtual async Task<TEntity> UpdateAsync(TEntity obj) => await _Repository.UpdateAsync(obj);
     }
 }
