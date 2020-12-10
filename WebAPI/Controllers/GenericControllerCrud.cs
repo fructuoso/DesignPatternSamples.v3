@@ -3,6 +3,8 @@ using DesignPatternSamples.Domain.Core.Entity;
 using DesignPatternSamples.Domain.Core.Interfaces.Service;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -14,12 +16,10 @@ namespace DesignPatternSamples.WebAPI.Controllers
         private readonly IServiceCrud<TKey, TEntity> _Service;
         protected readonly IMapper _Mapper;
 
-        protected GenericControllerCrud(
-            IServiceCrud<TKey, TEntity> service,
-            IMapper mapper)
+        protected GenericControllerCrud(IServiceProvider serviceProvider)
         {
-            _Service = service;
-            _Mapper = mapper;
+            _Service = serviceProvider.GetRequiredService<IServiceCrud<TKey, TEntity>>();
+            _Mapper = serviceProvider.GetRequiredService<IMapper>();
         }
 
         [HttpGet]
