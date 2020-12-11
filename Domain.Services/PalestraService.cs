@@ -14,7 +14,8 @@ namespace DesignPatternSamples.Domain.Services
 
         public PalestraService(
             IRepositoryCrud<Guid, Palestra> repository,
-            IPublisher publisher) : base(repository)
+            IPublisher publisher,
+            IUnitOfWork unitOfWork) : base(repository, unitOfWork)
         {
             _Publisher = publisher;
         }
