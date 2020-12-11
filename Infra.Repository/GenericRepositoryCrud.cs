@@ -19,7 +19,7 @@ namespace DesignPatternSamples.Infra.Repository
 
         public async Task<TEntity> AddAsync(TEntity obj)
         {
-            _DbSet.Add(obj);
+            await _DbSet.AddAsync(obj);
             return obj;
         }
         public async Task<TEntity> DeleteAsync(TKey id)
