@@ -36,7 +36,7 @@ namespace WebAPI
             #endregion
 
             #region DbContext
-            services.AddDbContext<RepositoryContext>(options => options.UseInMemoryDatabase(databaseName: "TempDB"));
+            services.AddDbContext<RepositoryContext>(options => options.UseSqlServer(_Configuration.GetConnectionString("DefaultConnection")));
             #endregion
 
             #region Dependency Injectionn
